@@ -17,10 +17,10 @@ export default class Main extends Component {
 
   // Carregar os dados do localStorage
   componentDidMount() {
-    const respositories = localStorage.getItem('repositories');
+    const repositories = localStorage.getItem('repositories');
 
-    if (respositories) {
-      this.setState({ repositories: JSON.parse(respositories) });
+    if (repositories) {
+      this.setState({ repositories: JSON.parse(repositories) });
     }
   }
 

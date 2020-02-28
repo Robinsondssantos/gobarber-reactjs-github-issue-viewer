@@ -33,7 +33,7 @@ export const Owner = styled.header`
   }
 
   p {
-    margin:top: 5px;
+    margin-top: 5px;
     font-size: 14px;
     color: #666;
     line-height: 1.4;
@@ -46,7 +46,7 @@ export const IssueList = styled.ul`
   padding-top: 30px;
   margin-top: 30px;
   border-top: 1px solid #eee;
-  lilst-style: none;
+  list-style: none;
 
   li {
     display: flex;
