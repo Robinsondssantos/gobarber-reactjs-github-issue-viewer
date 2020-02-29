@@ -43,14 +43,28 @@ export default class Main extends Component {
 
     const { newRepo, repositories } = this.state;
 
-    const response = await api.get(`/repos/${newRepo}`);
+    const exists = repositories.filter(
+      repository => repository.name.toLowerCase() === newRepo.toLowerCase()
+    );
 
-    const data = {
-      name: response.data.full_name,
-    };
+    if (!exists.length && newRepo.length > 3) {
+      try {
+        const response = await api.get(`/repos/${newRepo}`);
+
+        if (response) {
+          const data = {
+            name: response.data.full_name,
+          };
+          this.setState({
+            repositories: [...repositories, data],
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
     this.setState({
-      repositories: [...repositories, data],
       newRepo: '',
       loading: false,
     });
